@@ -4,8 +4,8 @@ in the context of SEQUENCES OF SUB-SEQUENCES.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Micah Fletcher.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -129,6 +129,11 @@ def multiply_numbers(sequence_of_lists):
     #             to loop through it in the INNER loop.
     #        -- See   m2e_nested_loops_in_sequences   as needed.
     # -------------------------------------------------------------------------
+    for j in range(len(sequence_of_lists)):
+        for k in range(len(sequence_of_lists[j])):
+            sequence_of_lists[j][k] = sequence_of_lists[j][k] * (j+1)
+
+
 
 
 def run_test_sum_numbers():
