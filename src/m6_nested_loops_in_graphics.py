@@ -81,9 +81,43 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # -------------------------------------------------------------------------
+    originalx = circle.center.x
+    originaly = circle.center.y
+    radius = circle.radius
+
+    x = originalx
+    y = originaly
+
+    for k in range(r + 3):
+        for j in range(3):
+            newcircle = rg.Circle(rg.Point(x, y), radius)
+            newcircle.fill_color = circle.fill_color
+            newcircle.attach_to(window)
+            window.render(.001)
+            x = x + (2 * radius)
+        y = y + (2 * radius)
+        x = originalx
+
+    originalx = originalx + (6 * radius)
+    originaly = originaly + (2 * r * radius)
+
+    x = originalx
+    y = originaly
+    for k in range(3):
+        for j in range(c):
+            newcircle = rg.Circle(rg.Point(x, y), radius)
+            newcircle.fill_color = circle.fill_color
+            newcircle.attach_to(window)
+            window.render(0.001)
+            x = x + (2 * radius)
+        y = y + (2 * radius)
+        x = originalx
+
+
+
 
 
 def run_test_draw_wall_on_right():
@@ -122,9 +156,32 @@ def draw_wall_on_right(rectangle, n, window):
     and n is a small, positive integer.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # -------------------------------------------------------------------------
+    origupperleft = rectangle.get_upper_left_corner()
+    origlowerright = rectangle.get_lower_right_corner()
+
+    deltax = origlowerright.x - origupperleft.x
+    deltay = origlowerright.y - origupperleft.y
+
+
+
+    for k in range(n):
+        upleft = rg.Point(origupperleft.x, origupperleft.y + (k * deltay))
+        lowright = rg.Point(origlowerright.x, origlowerright.y + (k * deltay))
+        for j in range(k + 1):
+            newrect = rg.Rectangle(upleft, lowright)
+            newrect.attach_to(window)
+            window.render(0.001)
+
+            upleft.x = upleft.x - deltax
+            lowright.x = lowright.x - deltax
+
+
+
+
+
 
 
 # -----------------------------------------------------------------------------
